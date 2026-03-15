@@ -14,10 +14,12 @@ export default function AboutPage(){
             <h2 style={{ color:'var(--accent-2)', marginTop:20 }}>{t(lang,'mission_title')}</h2>
             <p className="p">{t(lang,'mission_body')}</p>
             <ul className="p" style={{ marginTop:12, lineHeight:1.8 }}>
-              <li>✅ Classical & folk styles (all ages)</li>
-              <li>✅ Workshops & school incursions</li>
+              <li>✅ Traditional and Modern Styles (all ages)</li>
+              <li>✅ Workshops & Social Activities</li>
               <li>✅ Community & cultural festivals</li>
               <li>✅ Performance bookings</li>
+              <li>✅ Learn to Speak Thai</li>
+              <li>✅ Thai Cooking and Meal Sharing</li>
             </ul>
               <div
                 className="card"
