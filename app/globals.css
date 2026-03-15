@@ -27,10 +27,18 @@ a:hover { text-decoration: underline; }
 .btn.primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
 .btn.ghost { border: 1px solid var(--accent-2); color: var(--accent-2); background: #fff; }
 
-.header-logo { width: 400px; height: auto; }
-@media (max-width: 600px) {
-  .header-logo { width: 200px; }
+/* Header logo size */
+.header-logo {
+  width: 400px;   /* 10× */
+  height: auto;
+}
 
+/* Make the logo smaller on narrow screens */
+@media (max-width: 600px) {
+  .header-logo {
+    width: 200px;
+  }
+}
 .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,.05); }
 .grid { display:grid; gap: 1rem; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
