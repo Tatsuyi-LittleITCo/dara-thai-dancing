@@ -1,0 +1,39 @@
+:root {
+  --accent: #65A30D;   /* lime-600 */
+  --accent-2: #DC2626; /* red-600 */
+  --text: #111111;     /* black */
+  --muted: #374151;    /* slate-700 */
+  --soft-lime: #F7FEE7; /* lime-50 */
+  --soft-red: #FEF2F2;  /* red-50 */
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color: var(--text); background: #fff; }
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 1rem; }
+.header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(8px); background: rgba(255,255,255,.85); border-bottom: 1px solid #e5e7eb; }
+.nav { display: flex; gap: 1rem; }
+.section { padding: 3.5rem 0; }
+.hero { position: relative; overflow: hidden; }
+.hero-bg { position:absolute; inset:0; background: linear-gradient(135deg, var(--soft-lime) 0%, #fff 40%, var(--soft-red) 100%); }
+.hero-inner { position: relative; }
+
+.h1 { color: var(--accent-2); font-weight: 800; line-height: 1.1; font-size: clamp(2rem, 4.5vw, 3.25rem); margin: 0; }
+.p { color: var(--muted); font-size: 1.05rem; }
+
+.btn { display:inline-block; padding:.65rem 1rem; border-radius: 999px; }
+.btn.primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+.btn.ghost { border: 1px solid var(--accent-2); color: var(--accent-2); background: #fff; }
+
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 1rem; padding: 1rem; box-shadow: 0 6px 18px rgba(0,0,0,.05); }
+.grid { display:grid; gap: 1rem; }
+.grid-2 { grid-template-columns: 1fr 1fr; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px){ .grid-2, .grid-3 { grid-template-columns: 1fr; } .nav { display:none; } }
+
+footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
+.lang-toggle { display:flex; border:1px solid var(--accent-2); border-radius:999px; overflow:hidden; }
+.lang-toggle button { padding:.35rem .6rem; background: transparent; border:0; cursor:pointer; }
+.lang-toggle button.active { background: var(--accent); color:#fff; }
