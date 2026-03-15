@@ -31,7 +31,7 @@ a:hover { text-decoration: underline; }
 .grid { display:grid; gap: 1rem; }
 .grid-2 { grid-template-columns: 1fr 1fr; }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 900px){ .grid-2, .grid-3 { grid-template-columns: 1fr; } .nav { display:none; } }
+@media (max-width: 1200px){ .grid-2, .grid-3 { grid-template-columns: 1fr; } .nav { display:none; } }
 
 footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
 .lang-toggle { display:flex; border:1px solid var(--accent-2); border-radius:999px; overflow:hidden; }
@@ -117,31 +117,54 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
   }
 }
 
-/* --- Right sidebar layout for the Facebook card --- */
+
+/* --- Layout: content + right aside (Facebook) --- */
 .layout-with-aside {
   display: grid;
-  grid-template-columns: 1fr;             /* mobile: single column */
-  gap: 1.25rem;
+  grid-template-columns: 1fr auto;  /* left flexes, right is sized explicitly */
+  align-items: start;
+  gap: 1.5rem;
 }
 
-/* desktop/tablet: content + right sidebar */
-@media (min-width: 960px) {
+/* Push the aside fully to the right and make it wider */
+.layout-with-aside > aside.aside-sticky {
+  justify-self: end;      /* ⬅️ shove to the far right edge of the container */
+  width: 720px;           /* ⬅️ make the card wider; adjust to taste */
+  max-width: 100%;
+}
+
+/* Make the card and embed fill the wider column */
+#facebook .card-full {
+  width: 100%;
+  overflow: hidden;       /* keep the rounded look; change to visible if you want no clipping */
+}
+
+/* Facebook SDK often injects inline widths; force them to fill */
+#facebook .fb_iframe_widget,
+#facebook .fb_iframe_widget > span,
+#facebook iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Optional: on very large screens, go even wider */
+@media (min-width: 1400px) {
+  .layout-with-aside > aside.aside-sticky {
+    width: 820px; /* or 840px */
+  }
+}
+
+/* Responsive: fall back to single-column on small screens */
+@media (max-width: 1024px) {
   .layout-with-aside {
-    grid-template-columns: 1fr 380px;     /* left content, 380px sidebar */
-    align-items: start;
+    grid-template-columns: 1fr;
+  }
+  .layout-with-aside > aside.aside-sticky {
+    justify-self: stretch;
+    width: 100%;
   }
 }
 
-/* make the sidebar card sticky on desktop */
-.aside-sticky {
-  position: static;
-}
-@media (min-width: 960px) {
-  .aside-sticky {
-    position: sticky;
-    top: 88px; /* below your sticky header */
-  }
-}
 
 /* ensure the card stretches full width of its column */
 .card-full {
