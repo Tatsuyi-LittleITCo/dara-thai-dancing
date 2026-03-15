@@ -17,12 +17,15 @@ export default function HomePage() {
     <main>
       {/* ... your existing Hero / About / Classes sections ... */}
 
-      {/* Facebook */}
-      <section id="facebook" className="section">
+      {/* Facebook (landscape) */}
+      <section id="facebook" className="section section-wide">
         <div className="container">
           <h2 style={{ color: 'var(--accent-2)' }}>{t(lang, 'fb_title')}</h2>
           <p className="p">{t(lang, 'fb_sub')}</p>
-          <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" height={680} />
+          <FacebookEmbed
+            pageUrl="https://www.facebook.com/darathaidancing"
+            height={420}  // << shorter = more landscape feel
+          />
         </div>
       </section>
 
