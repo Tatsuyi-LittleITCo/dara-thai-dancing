@@ -42,6 +42,71 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
 .nav a.active { color: var(--accent-2); font-weight: 600; }
 */
 
+/* === Background video hero === */
+.hero {
+  position: relative;
+  min-height: 70vh;             /* adjust to 60–90vh as you like */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;          /* remove for full-bleed edges */
+}
+
+/* Container that holds the iframe absolutely */
+.yt-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;         /* clicks go to content */
+  overflow: hidden;
+}
+
+/* Make the iframe behave like background-cover */
+.yt-bg__iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;                 /* oversize to cover wide screens */
+  height: 67.5vw;               /* 120vw * 9/16 */
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .yt-bg__iframe {
+    width: 177.78vh;            /* 100vh * 16/9 */
+    height: 100vh;
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.45));
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero__title { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 .5rem; }
+.hero__subtitle { font-size: clamp(1rem, 2vw, 1.25rem); margin: 0 0 1.25rem; }
+.btn {
+  display: inline-block;
+  background: #c08a2a;
+  color: #fff;
+  padding: .75rem 1.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,.2);
+}
 
 @media (min-width: 960px) {
   .aside-sticky {
