@@ -21,7 +21,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Navbar */
+        {/* Navbar */}
           <nav className="nav" style={{ display:'flex', gap: '1rem' }}>
             <Link href="/" className={isActive('/') ? 'active' : ''}>{t(lang, 'nav_home') ?? 'Home'}</Link>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>{t(lang,'nav_about')}</Link>
@@ -30,8 +30,8 @@ export default function Header() {
             <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>{t(lang,'nav_contact')}</Link>
           </nav>
 
-        {/* Language Toggle */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      {/* Language Toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <div className="lang-toggle" role="group" aria-label="Language toggle">
           <button
             className={lang === 'en' ? 'active' : ''}
