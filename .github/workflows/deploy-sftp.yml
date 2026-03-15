@@ -25,13 +25,15 @@ jobs:
       - name: Export static site
         run: npm run export
 
-      - name: SFTP Deploy to cPanel
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # 5️⃣ Deploy to staging or live via SFTP
+      - name: Deploy to cPanel via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          local_path: out/**
-          remote_path: public_html/
-          delete_remote_files: true
+          server: ftp.darathaidancing.com.au
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist/
+          protocol: ftps           # cPanel requires FTPS
+          port: 21                 # default FTPS port
+          server-dir: /public_html/
+          dry-run: false           # set true for testing without uploading
