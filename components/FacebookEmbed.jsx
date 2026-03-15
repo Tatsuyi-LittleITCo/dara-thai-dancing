@@ -1,30 +1,31 @@
 'use client';
 
-import { useEffect } from 'react';
-
-export default function FacebookEmbed({ pageUrl, height = 1400, width = '100%' }) {
-
-  useEffect(() => {
-    if (window.FB) {
-      window.FB.XFBML.parse();
-    }
-  }, []);
+export default function FacebookEmbed({ pageUrl, height = 900 }) {
+  const encoded = encodeURIComponent(pageUrl);
 
   return (
-    <div
-      className="fb-page"
-      data-href={pageUrl}
-      data-tabs="timeline"
-      data-width={width}
-      data-height={height}
-      data-small-header="false"
-      data-adapt-container-width="true"
-      data-hide-cover="false"
-      data-show-facepile="true"
-    >
-      <blockquote cite={pageUrl} className="fb-xfbml-parse-ignore">
-        <a href={pageUrl}>Dara Thai Dancing School</a>
-      </blockquote>
+    <div className="fb-card">
+      <div className="fb-card-header">
+        <span>Latest from Facebook</span>
+        <a
+          href={pageUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fb-button"
+        >
+          Follow
+        </a>
+      </div>
+
+      <iframe
+        src={`https://www.facebook.com/plugins/page.php?href=${encoded}&tabs=timeline&width=500&height=${height}&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
+        width="100%"
+        height={height}
+        style={{ border: "none", overflow: "hidden" }}
+        scrolling="no"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      />
     </div>
   );
 }
