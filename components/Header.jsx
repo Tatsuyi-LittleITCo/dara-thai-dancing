@@ -1,112 +1,152 @@
-
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useContext, useState } from 'react';
 import { LangContext, t } from './LangProvider';
 
 export default function Header() {
-  const { lang, setLang } = useContext(LangContext);
+  const { lang /*, setLang */ } = useContext(LangContext);
   const pathname = usePathname();
-  const isActive = (href) => pathname === href;
+  const isActive = (href: string) => pathname === href;
+
+  // Mobile menu state
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navLinks = [
-    { href: '/', label: t(lang, 'nav_home') ?? 'Home' },
-    { href: '/about', label: t(lang, 'nav_about') },
-    { href: '/classes', label: t(lang, 'nav_classes') },
-    { href: '/events', label: t(lang, 'nav_events') },
-    { href: '/contact', label: t(lang, 'nav_contact') },
-  ];
-
   return (
-    <header className="header">
+    <header className={`site-header ${menuOpen ? 'is-open' : ''}`}>
       <div
-        className="container"
+        className="container header-inner"
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '.8rem 1rem',
+          gap: '1rem',
         }}
       >
-        {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <Link
-            href="/"
-            aria-label="Go to home"
-            style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}
-            onClick={() => setMenuOpen(false)}
-          >
-            <Image
-              src="/assetts/daria_squared_trans.webp"
-              alt="Dara Thai Dance School logo"
-              className="header-logo"
-              width={60}
-              height={60}
-              priority
-              style={{ height: 'auto', display: 'block' }}
+        {/* Logo + Site Name */}
+        <div className="brand" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <Link href="/" aria-label="Home" onClick={() => setMenuOpen(false)} style={{display:'inline-flex',alignItems:'center',gap:12,textDecoration:'none'}}>
+            <img
+              src="/logo.jpg"
+              alt="Dara Thai Dancing School"
+              width={40}
+              height={40}
+              style={{ borderRadius: 8, objectFit: 'cover' }}
             />
+            <strong className="brand-name" style={{ lineHeight: 1, fontSize: '1.4rem', color: 'inherit' }}>
+              Dara Thai
+            </strong>
           </Link>
         </div>
 
-        {/* Desktop nav + language toggle + hamburger */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <nav className="nav" style={{ display: 'flex', gap: '1rem' }}>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={isActive(link.href) ? 'active' : ''}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+        {/* Desktop nav */}
+        <nav className="nav-desktop" aria-label="Primary">
+          <Link href="/about" className={isActive('/about') ? 'active' : ''}>
+            {t(lang, 'nav_about') ?? 'About'}
+          </Link>
+          <Link href="/classes" className={isActive('/classes') ? 'active' : ''}>
+            {t(lang, 'nav_classes') ?? 'Classes'}
+          </Link>
+          <Link href="/events" className={isActive('/events') ? 'active' : ''}>
+            {t(lang, 'nav_events') ?? 'Events'}
+          </Link>
+          <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>
+            {t(lang, 'nav_contact') ?? 'Contact'}
+          </Link>
+        </nav>
 
-          {/* Language Toggle */}
-          <div className="lang-toggle" role="group" aria-label="Language toggle">
-            <button
-              className={lang === 'en' ? 'active' : ''}
-              onClick={() => setLang('en')}
-              aria-pressed={lang === 'en'}
-            >
-              EN
-            </button>
-            <button
-              className={lang === 'th' ? 'active' : ''}
-              onClick={() => setLang('th')}
-              aria-pressed={lang === 'th'}
-            >
-              ไทย
-            </button>
-          </div>
-
-          {/* Hamburger (mobile only) */}
-          <button
-            className={`hamburger${menuOpen ? ' open' : ''}`}
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            <span className="hamburger__line" />
-            <span className="hamburger__line" />
-            <span className="hamburger__line" />
-          </button>
-        </div>
+        {/* Mobile menu button */}
+        <button
+          className="nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMenuOpen(v => !v)}
+        >
+          <span className="sr-only">{t(lang, 'nav_toggle') ?? 'Toggle menu'}</span>
+          <span className="burger" />
+        </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <nav className={`mobile-nav${menuOpen ? ' mobile-nav--open' : ''}`} aria-label="Mobile navigation">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className={isActive(link.href) ? 'active' : ''}
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.label}
-          </Link>
-        ))}
+      {/* Mobile drawer */}
+      <nav
+        id="mobile-menu"
+        className="nav-mobile"
+        hidden={!menuOpen}
+        aria-label="Mobile"
+        onClick={() => setMenuOpen(false)}
+      >
+        <Link href="/about">{t(lang, 'nav_about') ?? 'About'}</Link>
+        <Link href="/classes">{t(lang, 'nav_classes') ?? 'Classes'}</Link>
+        <Link href="/events">{t(lang, 'nav_events') ?? 'Events'}</Link>
+        <Link href="/contact">{t(lang, 'nav_contact') ?? 'Contact'}</Link>
       </nav>
+
+      {/* Minimal styles (scoped to this component) */}
+      <style jsx>{`
+        .header-inner {
+          /* layout handled inline above; keep class for future tweaks */
+        }
+        .nav-desktop {
+          display: none;
+          gap: 1rem;
+          align-items: center;
+        }
+        .nav-desktop a {
+          text-decoration: none;
+          color: inherit;
+        }
+        .nav-desktop a.active {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+        .nav-toggle {
+          display: inline-flex;
+          width: 40px;
+          height: 40px;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+          background: #fff;
+          color: inherit;
+        }
+        .burger {
+          width: 18px;
+          height: 2px;
+          background: currentColor;
+          position: relative;
+        }
+        .burger::before,
+        .burger::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 18px;
+          height: 2px;
+          background: currentColor;
+        }
+        .burger::before { top: -6px; }
+        .burger::after { top: 6px; }
+
+        .nav-mobile {
+          display: grid;
+          gap: 0.75rem;
+          padding: 0 1rem 1rem;
+        }
+        .nav-mobile a {
+          text-decoration: none;
+          color: inherit;
+          padding: .5rem 0;
+        }
+
+        @media (min-width: 960px) {
+          .nav-desktop { display: inline-flex; }
+          .nav-toggle { display: none; }
+          .nav-mobile { display: none !important; }
+        }
+      `}</style>
     </header>
   );
 }
