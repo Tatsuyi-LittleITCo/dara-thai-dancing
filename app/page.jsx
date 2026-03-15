@@ -2,8 +2,7 @@
 'use client';
 import { useContext, useMemo } from 'react';
 import { LangContext, t } from '../components/LangProvider';
-import FacebookEmbed from '../components/FacebookEmbed';
-import InstagramEmbed from '../components/InstagramEmbed';     // <— add
+import FacebookEmbed from '../components/FacebookEmbed';    // <— add
 // import InstagramPosts from '../components/InstagramPosts';  // <— use if you go with official post embeds
 import YouTubeChannel from '../components/YouTubeChannel';     // <— add
 
