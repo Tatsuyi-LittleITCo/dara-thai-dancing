@@ -22,9 +22,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Export static site
-        run: npm run export
-
       # 5️⃣ Deploy to staging or live via SFTP
       - name: Deploy to cPanel via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
