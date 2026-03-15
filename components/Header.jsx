@@ -101,7 +101,7 @@ export default function Header() {
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen(v => !v)}
         >
-          <span className="sr-only">{t(lang, 'nav_toggle') ?? 'Toggle menu'}</span>
+          <span className="sr-only">Toggle menu</span>
           <span className="burger" />
         </button>
       </div>
@@ -122,6 +122,16 @@ export default function Header() {
       </nav>
 
       <style jsx>{`
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0,0,0,0);
+          border: 0;
+        }
         .header-inner {
         }
         .nav-desktop {
