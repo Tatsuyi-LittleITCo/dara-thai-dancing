@@ -1,18 +1,22 @@
-'use client';
-export default function FacebookEmbed({ pageUrl, height = 420 }) {
-  const src = `https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(
-    pageUrl
-  )}&tabs=timeline&width=1280&height=${height}&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
+
+export default function FacebookEmbed({ pageUrl, height = 1400, width = '100%' }) {
   return (
-    <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-      <div className="embed-16x9">
-        <iframe
-          title="Facebook Page"
-          src={src}
-          scrolling="no"
-          allow="encrypted-media; picture-in-picture; web-share"
-        />
-      </div>
+    <div
+      className="fb-page"
+      data-href={pageUrl}
+      data-tabs="timeline"
+      data-width={width}
+      data-height={height}       // ⬅️ ensure this is present
+      data-small-header="false"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="true"
+    >
+      <blockquote cite={pageUrl} className="fb-xfbml-parse-ignore">
+        https://www.facebook.com/darathaidancing
+          Dara Thai Dancing School
+        </a>
+      </blockquote>
     </div>
   );
 }
