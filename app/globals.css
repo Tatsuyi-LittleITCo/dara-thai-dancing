@@ -41,3 +41,8 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
   /*
 .nav a.active { color: var(--accent-2); font-weight: 600; }
 */
+
+/* Optional: allow social embeds to run wider than the text container */
+.section.section-wide .container {
+  max-width: 1280px; /* wider than default 1080px */
+}
