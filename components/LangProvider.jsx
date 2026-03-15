@@ -21,7 +21,14 @@ const dict = {
     fb_title: 'Latest from Facebook', fb_sub: 'News, photos and events direct from our page.',
     contact_title: 'Contact',
     contact_desc: 'Bookings, workshops, or enrolments—send us a message on Facebook or email and we’ll get back to you.',
-    msg_fb: 'Message on Facebook', open_maps: 'Open in Maps'
+    msg_fb: 'Message on Facebook', open_maps: 'Open in Maps',
+    social_title: 'Follow & Watch',
+    ig_title: 'Instagram',
+    ig_desc: 'See photos and reels from our classes and performances.',
+    ig_follow: 'Follow on Instagram',
+    yt_title: 'YouTube',
+    yt_desc: 'Watch performances and behind‑the‑scenes videos.',
+    yt_visit: 'Visit our YouTube channel'
   },
   th: {
     site_name: 'ดารานาฏศิลป์ไทย',
