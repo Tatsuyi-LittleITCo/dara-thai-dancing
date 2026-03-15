@@ -18,7 +18,7 @@ export default function FacebookEmbed({ pageUrl, height = 900 }) {
       </div>
 
       <iframe
-        src={`https://www.facebook.com/plugins/page.php?href=${encoded}&tabs=timeline&width=500&height=${height}&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
+        src={`https://www.facebook.com/plugins/page.php?href=${encoded}&tabs=timeline&width=600&height=${height}&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
         width="100%"
         height={height}
         style={{ border: "none", overflow: "hidden" }}
