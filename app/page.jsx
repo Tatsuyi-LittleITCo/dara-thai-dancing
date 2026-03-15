@@ -30,19 +30,6 @@ export default function HomePage() {
             tabIndex={-1}
           />
         </div>
-      
-        {/* Optional overlay to improve text contrast */}
-        <div className="hero__overlay" />
-      
-        {/* Foreground content */}
-        <div className="hero__content">
-          <h1 className="hero__title">Dara Thai Dancing School</h1>
-          <p className="hero__subtitle">
-            {t(lang, 'tagline') ?? 'Preserving Thai culture through dance'}
-          </p>
-          {/* Example CTA — update as needed */}
-          <a className="btn" href="#classes">View Classes</a>
-        </div>
       </section>
 
 
