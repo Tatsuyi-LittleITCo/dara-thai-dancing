@@ -1,6 +1,7 @@
 
 'use client';
 import { useContext } from 'react';
+import Image from 'next/image';
 import { LangContext, t } from '../../components/LangProvider';
 
 export default function AboutPage() {
@@ -20,15 +21,18 @@ export default function AboutPage() {
             <h2 style={{ color: 'var(--accent-2)', marginTop: 20 }}>
               {t(lang, 'mission_title')}
             </h2>
-            <p className="p">{t(lang, 'mission_body')}</p>
+            <p className="p">
+              {t(lang, 'mission_body_1')}
+              <strong>{t(lang, 'mission_body_name1')}</strong>
+              {t(lang, 'mission_body_2')}
+              <strong>{t(lang, 'mission_body_name2')}</strong>
+              {t(lang, 'mission_body_3')}
+            </p>
 
             <ul className="p" style={{ marginTop: 12, lineHeight: 1.8 }}>
-              <li>✅ Traditional and Modern Styles (all ages)</li>
-              <li>✅ Workshops &amp; Social Activities</li>
-              <li>✅ Community &amp; cultural festivals</li>
-              <li>✅ Performance bookings</li>
-              <li>✅ Learn to Speak Thai</li>
-              <li>✅ Thai Cooking and Meal Sharing</li>
+              {['offering_styles', 'offering_workshops', 'offering_festivals', 'offering_bookings', 'offering_thai_lang', 'offering_cooking'].map((key) => (
+                <li key={key}>{t(lang, key)}</li>
+              ))}
             </ul>
           </div>
 
@@ -43,9 +47,11 @@ export default function AboutPage() {
                 height: '100%' // set a fixed height (e.g., '520px') if you want a consistent card height
               }}
             >
-              <img
+              <Image
                 src="/darathai-mum.jpg"
-                alt="Darathai-Mum"
+                alt="Founder of Dara Thai Dance School in traditional Thai dance costume"
+                width={600}
+                height={800}
                 style={{
                   width: '100%',
                   height: '100%',

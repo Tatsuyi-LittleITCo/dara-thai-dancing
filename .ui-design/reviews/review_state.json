@@ -1,0 +1,16 @@
+{
+  "review_id": "full_site_20260315_145600",
+  "target": "entire site",
+  "focus_areas": ["visual", "usability", "code", "performance", "dependencies", "security"],
+  "context": "modernise site - content consumption / community dance school",
+  "platform": "responsive (all platforms)",
+  "status": "complete",
+  "started_at": "2026-03-15T14:56:00Z",
+  "issues_found": 18,
+  "severity_counts": {
+    "critical": 4,
+    "major": 6,
+    "minor": 5,
+    "suggestion": 3
+  }
+}

@@ -27,11 +27,11 @@ export default function ClassesPage(){
           </div>
 
           <div className="card" style={{ marginTop:16 }}>
-            <h3 style={{ marginTop:0, color:'var(--accent-2)' }}>Sample Timetable (placeholder)</h3>
+            <h3 style={{ marginTop:0, color:'var(--accent-2)' }}>{t(lang, 'timetable_title')}</h3>
             <ul className="p" style={{ lineHeight:1.9 }}>
-              <li>Sat 9:30–10:30 — Kids Foundations</li>
-              <li>Sat 10:45–12:00 — Teens/Adults Technique</li>
-              <li>Wed 18:00–19:30 — Performance Troupe Rehearsal</li>
+              <li>{t(lang, 'timetable_kids')}</li>
+              <li>{t(lang, 'timetable_teens')}</li>
+              <li>{t(lang, 'timetable_troupe')}</li>
             </ul>
             <p className="p" style={{ fontSize:14, color:'#6b7280' }}>{t(lang,'timetable_note')}</p>
           </div>

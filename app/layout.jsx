@@ -1,6 +1,21 @@
 export const metadata = {
-  title: 'Dara Thai Dance School',
-  description: 'Thai dance classes, workshops, and performances in Perth, Western Australia.'
+  metadataBase: new URL('https://darathaidancing.com.au'),
+  title: {
+    default: 'Dara Thai Dance School',
+    template: '%s | Dara Thai Dance School',
+  },
+  description: 'Thai dance classes, workshops, and performances in Perth, Western Australia.',
+  openGraph: {
+    title: 'Dara Thai Dance School',
+    description: 'Thai dance classes, workshops, and performances in Perth, Western Australia.',
+    siteName: 'Dara Thai Dance School',
+    locale: 'en_AU',
+    type: 'website',
+  },
+  icons: {
+    icon: '/assetts/daria_squared.ico',
+    apple: '/assetts/daria_squared.png',
+  },
 };
 
 import './globals.css';

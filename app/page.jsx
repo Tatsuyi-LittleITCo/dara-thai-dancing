@@ -33,19 +33,25 @@ export default function HomePage() {
       </section>
 
 
-      {/* Facebook as a right-hand vertical card */}
+      {/* Facebook feed */}
       <section id="facebook" className="section">
-        <div className="container layout-with-aside">
-          <div /> {/* left column (optional) */}
-          <aside className="aside-sticky">
-            <div className="card card-full" style={{ overflow: 'hidden', padding: 0 }}>
-              {/* Card header */}
-              
-
-              {/* The embed */}
-              <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" />
+        <div className="container">
+          <div className="card card-full" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-header">
+              <h3 style={{ margin: 0, color: 'var(--accent-2)' }}>
+                {t(lang, 'fb_title')}
+              </h3>
+              <a
+                href="https://www.facebook.com/darathaidancing"
+                target="_blank"
+                rel="noreferrer"
+                className="btn ghost"
+              >
+                Facebook
+              </a>
             </div>
-          </aside>
+            <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" height={1400} />
+          </div>
         </div>
       </section>
 

@@ -5,8 +5,8 @@ import { LangContext, t } from '../../components/LangProvider';
 export default function EventsPage(){
   const { lang } = useContext(LangContext);
   const events = [
-    { date: 'TBA', title: 'Community Festival Performance', where: 'Perth Metro', link: 'https://www.facebook.com/darathaidancing' },
-    { date: 'TBA', title: 'Cultural Showcase', where: 'Venue TBA', link: 'https://www.facebook.com/darathaidancing' },
+    { date: t(lang, 'event_date_tba'), title: t(lang, 'event_festival_title'), where: t(lang, 'event_festival_where'), link: 'https://www.facebook.com/darathaidancing' },
+    { date: t(lang, 'event_date_tba'), title: t(lang, 'event_showcase_title'), where: t(lang, 'event_showcase_where'), link: 'https://www.facebook.com/darathaidancing' },
   ];
 
   return (
@@ -20,9 +20,9 @@ export default function EventsPage(){
             {events.map((e, i) => (
               <div key={i} className="card">
                 <h3 style={{ marginTop:0 }}>{e.title}</h3>
-                <p className="p" style={{ fontSize:14, margin:0 }}><strong>Date:</strong> {e.date}</p>
-                <p className="p" style={{ fontSize:14, margin:'4px 0 8px' }}><strong>Where:</strong> {e.where}</p>
-                <a className="btn ghost" href={e.link} target="_blank" rel="noreferrer">Facebook updates</a>
+                <p className="p" style={{ fontSize:14, margin:0 }}><strong>{t(lang, 'event_date_label')}:</strong> {e.date}</p>
+                <p className="p" style={{ fontSize:14, margin:'4px 0 8px' }}><strong>{t(lang, 'event_where_label')}:</strong> {e.where}</p>
+                <a className="btn ghost" href={e.link} target="_blank" rel="noreferrer">{t(lang, 'event_fb_updates')}</a>
               </div>
             ))}
           </div>
