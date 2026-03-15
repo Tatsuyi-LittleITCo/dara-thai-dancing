@@ -19,15 +19,26 @@ export default function AboutPage(){
               <li>✅ Community & cultural festivals</li>
               <li>✅ Performance bookings</li>
             </ul>
-          </div>
-          <aside className="card">
-            <h3 style={{ color:'var(--accent-2)', marginTop:0 }}>{t(lang,'quick_details')}</h3>
-            <div className="p" style={{ fontSize:14 }}>
-              <div><strong>{t(lang,'location')}:</strong> Perth, WA</div>
-              <div><strong>{t(lang,'phone')}:</strong> 0433 216 381</div>
-              <div><strong>{t(lang,'email')}:</strong> info@darathaidancing.com.au</div>
-              <div><strong>{t(lang,'facebook')}:</strong> https://www.facebook.com/darathaidancing</div>
-            </div>
+              <div
+                className="card"
+                style={{
+                  padding: 0,
+                  overflow: 'hidden',
+                  borderRadius: '1rem',
+                  height: '100%'      // optional, can set a fixed height if needed
+                }}
+              >
+                <img
+                  src="/quick-details.jpg"
+                  alt="Quick details"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </div>
           </aside>
         </div>
       </section>
