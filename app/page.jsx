@@ -40,29 +40,7 @@ export default function HomePage() {
           <aside className="aside-sticky">
             <div className="card card-full" style={{ overflow: 'hidden', padding: 0 }}>
               {/* Card header */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '2px 4px',
-                  borderBottom: '1px solid #e5e7eb',
-                  background: 'linear-gradient(135deg, var(--soft-lime), #fff)',
-                }}
-              >
-                <h3 style={{ margin: 0, color: 'var(--accent-2)' }}>
-                  {t(lang, 'fb_title')}
-                </h3>
-                <a
-                  href="https://www.facebook.com/darathaidancing"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn ghost"
-                  style={{ padding: '2px 4px' }}
-                >
-                  Facebook
-                </a>
-              </div>
+              
 
               {/* The embed */}
               <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" />
