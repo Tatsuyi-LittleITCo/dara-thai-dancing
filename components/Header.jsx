@@ -16,7 +16,7 @@ export default function Header() {
         {/* Logo + Site Name */}
         <div style={{ display:'flex', alignItems:'center', gap: 14 }}>
           <Link href="/" aria-label="Go to home" style={{ display:'flex', alignItems:'center', gap: 10, textDecoration:'none' }}>
-            <img src="/logo.jpg" alt="Dara Thai Dance School logo" className="header-logo" style={{ width: 500, height: 'auto', display:'block' }} />
+            <img src="/logo.jpg" alt="Dara Thai Dance School logo" className="header-logo" style={{ width: 250, height: 'auto', display:'block' }} />
             <strong style={{ lineHeight: 1, fontSize: '1.4rem', color:'inherit' }}></strong>
           </Link>
         </div>
