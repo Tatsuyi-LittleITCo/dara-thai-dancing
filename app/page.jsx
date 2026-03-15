@@ -15,36 +15,36 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* === Background Video Hero (new) === */}
+      {/* === Background YouTube Hero === */}
       <section className="hero">
-        <video
-          className="hero__video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/assets/images/dara-hero-poster.jpg"
-          aria-hidden="true"
-        >
-          /assets/video/dara-hero.webm
-          /assets/video/dara-hero.mp4
-        </video>
-
+        {/* YouTube background embed */}
+        <div className="yt-bg">
+          <iframe
+            className="yt-bg__iframe"
+            src="https://www.youtube.com/embed/mTCTDW4PLQ8?autoplay=1&mute=1&controls=0&playsinline=1&modestbranding=1&rel=0&loop=1&playlist=mTCTDW4PLQ8&enablejsapi=1"
+            title="Dara Thai Dancing School background video"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+            allowFullScreen
+            aria-hidden="true"
+            tabIndex={-1}
+          />
+        </div>
+      
         {/* Optional overlay to improve text contrast */}
         <div className="hero__overlay" />
-
+      
         {/* Foreground content */}
         <div className="hero__content">
           <h1 className="hero__title">Dara Thai Dancing School</h1>
           <p className="hero__subtitle">
             {t(lang, 'tagline') ?? 'Preserving Thai culture through dance'}
           </p>
-          {/* Example CTA — update href/label as you like */}
-          /#classesView Classes</a>
+          {/* Example CTA — update as needed */}
+          <a className="btn" href="#classes">View Classes</a>
         </div>
       </section>
 
-      {/* ... your existing Hero / About / Classes sections ... */}
 
       {/* Facebook as a right-hand vertical card */}
       <section id="facebook" className="section">
