@@ -1,4 +1,3 @@
-
 export default function FacebookEmbed({ pageUrl, height = 1400, width = '100%' }) {
   return (
     <div
@@ -6,14 +5,14 @@ export default function FacebookEmbed({ pageUrl, height = 1400, width = '100%' }
       data-href={pageUrl}
       data-tabs="timeline"
       data-width={width}
-      data-height={height}       // ⬅️ ensure this is present
+      data-height={height}
       data-small-header="false"
       data-adapt-container-width="true"
       data-hide-cover="false"
       data-show-facepile="true"
     >
       <blockquote cite={pageUrl} className="fb-xfbml-parse-ignore">
-        https://www.facebook.com/darathaidancing
+        <a href={pageUrl}>
           Dara Thai Dancing School
         </a>
       </blockquote>
