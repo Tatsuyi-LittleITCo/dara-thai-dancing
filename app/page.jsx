@@ -25,10 +25,10 @@ export default function HomePage() {
               {t(lang, 'hero_desc')}
             </p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <a href="#classes" className="btn primary">
+              <a className="btn primary" href="#classes">
                 {t(lang, 'cta_join')}
               </a>
-              <a href="#facebook" className="btn ghost">
+              <a className="btn ghost" href="#facebook">
                 {t(lang, 'cta_fb')}
               </a>
             </div>
@@ -122,7 +122,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <p className="p" style={{ marginTop: 12, fontSize: 14, color: '#6b7280' }}>
+          <p
+            className="p"
+            style={{ marginTop: 12, fontSize: 14, color: '#6b7280' }}
+          >
             {t(lang, 'timetable_note')}
           </p>
         </div>
@@ -164,7 +167,9 @@ export default function HomePage() {
                 <strong>{t(lang, 'location')}:</strong> Perth, Western Australia
               </li>
             </ul>
-            <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
+            <div
+              style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}
+            >
               <a
                 className="btn primary"
                 href="https://www.facebook.com/darathaidancing"
