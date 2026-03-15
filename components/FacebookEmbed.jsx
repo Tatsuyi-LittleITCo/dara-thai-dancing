@@ -1,4 +1,15 @@
+'use client';
+
+import { useEffect } from 'react';
+
 export default function FacebookEmbed({ pageUrl, height = 1400, width = '100%' }) {
+
+  useEffect(() => {
+    if (window.FB) {
+      window.FB.XFBML.parse();
+    }
+  }, []);
+
   return (
     <div
       className="fb-page"
@@ -12,9 +23,7 @@ export default function FacebookEmbed({ pageUrl, height = 1400, width = '100%' }
       data-show-facepile="true"
     >
       <blockquote cite={pageUrl} className="fb-xfbml-parse-ignore">
-        <a href={pageUrl}>
-          Dara Thai Dancing School
-        </a>
+        <a href={pageUrl}>Dara Thai Dancing School</a>
       </blockquote>
     </div>
   );
