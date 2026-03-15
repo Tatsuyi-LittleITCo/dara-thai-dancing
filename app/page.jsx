@@ -17,17 +17,28 @@ export default function HomePage() {
     <main>
       {/* ... your existing Hero / About / Classes sections ... */}
 
-      {/* Facebook (landscape) */}
-      <section id="facebook" className="section section-wide">
-        <div className="container">
-          <h2 style={{ color: 'var(--accent-2)' }}>{t(lang, 'fb_title')}</h2>
-          <p className="p">{t(lang, 'fb_sub')}</p>
-          <FacebookEmbed
-            pageUrl="https://www.facebook.com/darathaidancing"
-            height={420}  // << shorter = more landscape feel
-          />
-        </div>
-      </section>
+      {/* Facebook as a right-hand vertical card */}
+      <section id="facebook" className="section">
+        <div className="container layout-with-aside">
+          {/* Left column: keep your copy (or add anything you like) */}
+          <div>
+            <h2 style={{ color: 'var(--accent-2)' }}>{t(lang, 'fb_title')}</h2>
+            <p className="p">{t(lang, 'fb_sub')}</p>
+      
+            {/* (Optional) Any extra content, images, or paragraphs can stay here */}
+          </div>
+
+    {/* Right column: the vertical card */}
+    <aside className="aside-sticky">
+      <div className="card card-full" style={{ padding: 0, overflow: 'hidden' }}>
+        <FacebookEmbed
+          pageUrl="https://www.facebook.com/darathaidancing"
+          height={600}   // vertical card height; tweak 520–680 as you like
+        />
+      </div>
+    </aside>
+  </div>
+</section>
 
         {/* Social: Instagram + YouTube */}
   <section id="social" className="section" style={{ borderTop: '1px solid #e5e7eb' }}>
