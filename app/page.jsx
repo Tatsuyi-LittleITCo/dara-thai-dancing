@@ -65,7 +65,7 @@ export default function HomePage() {
               </div>
 
               {/* The embed */}
-              <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" height={960} />
+              <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" height={1400} />
             </div>
           </aside>
         </div>
