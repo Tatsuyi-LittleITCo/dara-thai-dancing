@@ -20,20 +20,21 @@ export default function Header() {
             <strong style={{ lineHeight: 1, fontSize: '1.4rem', color:'inherit' }}></strong>
           </Link>
         </div>
-
-        {/* Language toggle + nav */}
-        <div style={{ display:'flex', alignItems:'center', gap: 12 }}>
-          <div className="lang-toggle" role="group" aria-label="Language toggle">
-            <button className={lang==='en' ? 'active' : ''} onClick={()=>setLang('en')} aria-pressed={lang==='en'}>EN</button>
-            <button className={lang==='th' ? 'active' : ''} onClick={()=>setLang('th')} aria-pressed={lang==='th'}>ไทย</button>
-          </div>
-
+        
           <nav className="nav" style={{ display:'flex', gap: '1rem' }}>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>{t(lang,'nav_about')}</Link>
             <Link href="/classes" className={isActive('/classes') ? 'active' : ''}>{t(lang,'nav_classes')}</Link>
             <Link href="/events" className={isActive('/events') ? 'active' : ''}>{t(lang,'nav_events')}</Link>
             <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>{t(lang,'nav_contact')}</Link>
           </nav>
+            </div>
+      
+          {/* Language toggle + nav */}
+          <div style={{ display:'flex', alignItems:'center', gap: 12 }}>
+            <div className="lang-toggle" role="group" aria-label="Language toggle">
+              <button className={lang==='en' ? 'active' : ''} onClick={()=>setLang('en')} aria-pressed={lang==='en'}>EN</button>
+              <button className={lang==='th' ? 'active' : ''} onClick={()=>setLang('th')} aria-pressed={lang==='th'}>ไทย</button>
+          </div>
         </div>
       </div>
     </header>
