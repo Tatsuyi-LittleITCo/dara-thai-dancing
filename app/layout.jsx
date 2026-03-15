@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
           <footer>
             <div className="container" style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'1rem 0'}}>
               <div>© {new Date().getFullYear()} Dara Thai Dance School</div>
-              <div>Made with ❤️ in Perth</div>
+              <div>Website provided by Little IT Co Pty Ltd ✌️ </div>
             </div>
           </footer>
         </LangProvider>
