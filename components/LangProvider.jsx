@@ -33,6 +33,8 @@ const dict = {
     contact_intro: 'We would love to meet you.',
     about_page_title: 'About Us',
     about_page_intro: 'Dara Thai Dance School in Maddington, Perth is a welcoming community hub where people of all ages and backgrounds come together to learn and celebrate traditional Thai dance. The school offers a friendly, family‑like environment, sharing Thai cultural arts through regular classes, rehearsals, and community performances. With a growing group of students and supporters, Dara Thai Dance School has become a connected local community that values culture, creativity, and inclusiveness.',
+    mission_title: 'History Of Dara Thai',
+    mission_body: 'Dara Thai Dance School was created by Kru Ploy as a way to carry on the beautiful traditions taught to her by her mother, Kru Dang. What began as a personal commitment to honour her mother’s legacy has grown into a meaningful way to ensure Thai cultural heritage continues to live on in the hearts of our children and future generations. By sharing these dances, stories, and techniques with the community, Dara Thai Dance School keeps family traditions alive and preserves a connection to culture that can be passed forward with pride.',
   },
   th: {
     site_name: 'ดารานาฏศิลป์ไทย',
