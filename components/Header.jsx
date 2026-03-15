@@ -30,7 +30,7 @@ export default function Header() {
           <nav className="nav" style={{ display:'flex', gap: '1rem' }}>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>{t(lang,'nav_about')}</Link>
             <Link href="/classes" className={isActive('/classes') ? 'active' : ''}>{t(lang,'nav_classes')}</Link>
-            <Link href="/events" className={isActive('/events') ? 'active' : ''}>{t(lang,'nav_facebook')}</Link>
+            <Link href="/events" className={isActive('/events') ? 'active' : ''}>{t(lang,'nav_events')}</Link>
             <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>{t(lang,'nav_contact')}</Link>
           </nav>
         </div>
