@@ -45,7 +45,7 @@ export default function HomePage() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  padding: '10px 14px',
+                  padding: '2px 4px',
                   borderBottom: '1px solid #e5e7eb',
                   background: 'linear-gradient(135deg, var(--soft-lime), #fff)',
                 }}
@@ -58,7 +58,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noreferrer"
                   className="btn ghost"
-                  style={{ padding: '6px 10px' }}
+                  style={{ padding: '2px 4px' }}
                 >
                   Facebook
                 </a>
