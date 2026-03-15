@@ -31,8 +31,8 @@ export default function AboutPage(){
                 }}
               >
                 <img
-                  src="/quick-details.jpg"
-                  alt="Quick details"
+                  src="/darathai-mum.jpg"
+                  alt="Darathai-Mum"
                   style={{
                     width: '100%',
                     height: '100%',
