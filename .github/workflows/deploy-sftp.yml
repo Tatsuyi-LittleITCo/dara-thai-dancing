@@ -29,8 +29,8 @@ jobs:
           server: ftp.darathaidancing.com.au
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/
+          local-dir: out
           protocol: ftps           # cPanel requires FTPS
           port: 21                 # default FTPS port
-          server-dir: /public_html/
+          server-dir: public_html
           dry-run: false           # set true for testing without uploading
