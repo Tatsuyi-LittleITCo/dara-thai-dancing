@@ -79,3 +79,15 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
   width: 100%;
 }
 
+/* Wider container for social sections (optional) */
+.section-wide .container { max-width: 1280px; }
+
+/* Right sidebar grid (optional, from earlier step) */
+.layout-with-aside {
+  display: grid; gap: 1.25rem; grid-template-columns: 1fr;
+}
+@media (min-width: 960px) {
+  .layout-with-aside { grid-template-columns: 1fr 380px; align-items: start; }
+  .aside-sticky { position: sticky; top: 88px; }
+}
+.card-full { width: 100%; }
