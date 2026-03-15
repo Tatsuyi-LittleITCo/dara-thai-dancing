@@ -47,16 +47,35 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
   max-width: 1280px; /* wider than default 1080px */
 }
 
-/* Responsive 16:9 wrapper for embeds */
-.embed-16x9 {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%; /* 9 / 16 * 100% */
+
+/* --- Right sidebar layout for the Facebook card --- */
+.layout-with-aside {
+  display: grid;
+  grid-template-columns: 1fr;             /* mobile: single column */
+  gap: 1.25rem;
 }
-.embed-16x9 > iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+
+/* desktop/tablet: content + right sidebar */
+@media (min-width: 960px) {
+  .layout-with-aside {
+    grid-template-columns: 1fr 380px;     /* left content, 380px sidebar */
+    align-items: start;
+  }
 }
+
+/* make the sidebar card sticky on desktop */
+.aside-sticky {
+  position: static;
+}
+@media (min-width: 960px) {
+  .aside-sticky {
+    position: sticky;
+    top: 88px; /* below your sticky header */
+  }
+}
+
+/* ensure the card stretches full width of its column */
+.card-full {
+  width: 100%;
+}
+
