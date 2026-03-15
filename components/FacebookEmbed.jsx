@@ -1,6 +1,6 @@
 'use client';
 
-export default function FacebookEmbed({ pageUrl, height = 900 }) {
+export default function FacebookEmbed({ pageUrl, height = 1200 }) {
   const encoded = encodeURIComponent(pageUrl);
 
   return (
