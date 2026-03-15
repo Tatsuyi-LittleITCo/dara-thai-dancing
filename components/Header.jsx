@@ -22,6 +22,7 @@ export default function Header() {
         </div>
 
         {/* Navbar */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <nav className="nav" style={{ display:'flex', gap: '1rem' }}>
             <Link href="/" className={isActive('/') ? 'active' : ''}>{t(lang, 'nav_home') ?? 'Home'}</Link>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>{t(lang,'nav_about')}</Link>
@@ -33,22 +34,23 @@ export default function Header() {
       {/* Language Toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <div className="lang-toggle" role="group" aria-label="Language toggle">
-          <button
-            className={lang === 'en' ? 'active' : ''}
-            onClick={() => setLang('en')}
-            aria-pressed={lang === 'en'}
-          >
-            EN
-          </button>
-          <button
-            className={lang === 'th' ? 'active' : ''}
-            onClick={() => setLang('th')}
-            aria-pressed={lang === 'th'}
-          >
-            ไทย
-          </button>
+            <button
+              className={lang === 'en' ? 'active' : ''}
+              onClick={() => setLang('en')}
+              aria-pressed={lang === 'en'}
+            >
+              EN
+            </button>
+            <button
+              className={lang === 'th' ? 'active' : ''}
+              onClick={() => setLang('th')}
+              aria-pressed={lang === 'th'}
+            >
+              ไทย
+            </button>
+          </div>
         </div>
       </div>
-
-    </div>
-  </header>
+    </header>
+  );
+}
