@@ -8,10 +8,10 @@ import { LangContext, t } from './LangProvider';
 export default function Header() {
   const { lang /*, setLang */ } = useContext(LangContext);
   const pathname = usePathname();
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href) => pathname === href; 
 
   // Mobile menu state
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <header className={`site-header ${menuOpen ? 'is-open' : ''}`}>
