@@ -34,9 +34,7 @@ export default function Header() {
               className="header-logo"
               style={{ width: 250, height: 'auto', display: 'block' }}
             />
-            <strong style={{ lineHeight: 1, fontSize: '1.4rem', color: 'inherit' }}>
-              {t(lang, 'site_name')}
-            </strong>
+            <strong style={{ lineHeight: 1, fontSize: '1.4rem', color: 'inherit' }}></strong>
           </Link>
         </div>
 
