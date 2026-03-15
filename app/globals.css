@@ -162,6 +162,37 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
 .card-full { width: 100%; }
 
 
+/* --- Facebook card: allow tall content --- */
+#facebook .card-full {
+  /* Avoid clipping the taller embed. Keep rounded corners if you like. */
+  overflow: visible;             /* or keep 'hidden' if you want strict masking */
+  max-height: none;
+}
+
+/* Ensure the aside can grow with the tall card (especially if it's sticky) */
+.aside-sticky {
+  position: sticky;              /* if you already use sticky, keep it */
+  top: 1rem;                     /* adjust as needed */
+  align-self: start;             /* allow full natural height */
+}
+
+/* Make the Facebook iframe and its wrappers respect the taller height */
+#facebook .fb_iframe_widget,
+#facebook .fb_iframe_widget > span,
+#facebook iframe {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 1400px !important;     /* ⬅️ match the prop above */
+}
+
+/* Optional: soften the card header/body visual separation if the card is very tall */
+#facebook .card-full .p {
+  margin-bottom: 0;
+}
+
+
+
 /* NAVBAR — thicker, bolder, larger */
 .nav a {
   font-weight: 400 !important;      /* very bold */
