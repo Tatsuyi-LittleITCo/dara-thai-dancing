@@ -38,47 +38,30 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Navbar + Language Toggle */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          {/* Navbar */}
-          <nav className="nav" style={{ display: 'flex', gap: '1rem' }}>
-            <Link href="/" className={isActive('/') ? 'active' : ''}>
-              {t(lang, 'nav_home') ?? 'Home'}
-            </Link>
-            <Link href="/about" className={isActive('/about') ? 'active' : ''}>
-              {t(lang, 'nav_about')}
-            </Link>
-            <Link href="/classes" className={isActive('/classes') ? 'active' : ''}>
-              {t(lang, 'nav_classes')}
-            </Link>
-            <Link href="/events" className={isActive('/events') ? 'active' : ''}>
-              {t(lang, 'nav_events')}
-            </Link>
-            <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>
-              {t(lang, 'nav_contact')}
-            </Link>
+        {/* Hamburger */}
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
+        </button>
+
+        <div className={`nav-area ${menuOpen ? 'open' : ''}`}>
+          
+          <nav className="nav">
+            <a href="#about">{t(lang,'nav_about')}</a>
+            <a href="#classes">{t(lang,'nav_classes')}</a>
+            <a href="#facebook">{t(lang,'nav_facebook')}</a>
+            <a href="#contact">{t(lang,'nav_contact')}</a>
           </nav>
 
-          {/* Language Toggle */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div className="lang-toggle" role="group" aria-label="Language toggle">
-              <button
-                className={lang === 'en' ? 'active' : ''}
-                onClick={() => setLang('en')}
-                aria-pressed={lang === 'en'}
-              >
-                EN
-              </button>
-              <button
-                className={lang === 'th' ? 'active' : ''}
-                onClick={() => setLang('th')}
-                aria-pressed={lang === 'th'}
-              >
-                ไทย
-              </button>
-            </div>
+          <div className="lang-toggle">
+            <button onClick={() => setLang('en')}>EN</button>
+            <button onClick={() => setLang('th')}>ไทย</button>
           </div>
+
         </div>
+
       </div>
     </header>
   );
