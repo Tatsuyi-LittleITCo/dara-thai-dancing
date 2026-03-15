@@ -102,7 +102,7 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
   font-weight: 400 !important;      /* very bold */
   font-size: 1.35rem !important;    /* larger text */
   letter-spacing: 0.4px;            /* slightly more defined */
-  color: var(--text);               /* ensure clean consistent color */
+  color: var(--accent-2);               /* ensure clean consistent color */
 }
 
 .nav a:hover {
