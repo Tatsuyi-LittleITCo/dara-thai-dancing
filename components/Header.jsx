@@ -1,5 +1,5 @@
-
 'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useContext } from 'react';
@@ -12,42 +12,73 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="container" style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding: '.8rem 1rem' }}>
+      <div
+        className="container"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '.8rem 1rem',
+        }}
+      >
         {/* Logo + Site Name */}
-        <div style={{ display:'flex', alignItems:'center', gap: 14 }}>
-          <Link href="/" aria-label="Go to home" style={{ display:'flex', alignItems:'center', gap: 10, textDecoration:'none' }}>
-            <img src="/logo.jpg" alt="Dara Thai Dance School logo" className="header-logo" style={{ width: 250, height: 'auto', display:'block' }} />
-            <strong style={{ lineHeight: 1, fontSize: '1.4rem', color:'inherit' }}></strong>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <Link
+            href="/"
+            aria-label="Go to home"
+            style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}
+          >
+            <img
+              src="/logo.jpg"
+              alt="Dara Thai Dance School logo"
+              className="header-logo"
+              style={{ width: 250, height: 'auto', display: 'block' }}
+            />
+            <strong style={{ lineHeight: 1, fontSize: '1.4rem', color: 'inherit' }}>
+              {t(lang, 'site_name')}
+            </strong>
           </Link>
         </div>
 
-        {/* Navbar */}
+        {/* Navbar + Language Toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <nav className="nav" style={{ display:'flex', gap: '1rem' }}>
-            <Link href="/" className={isActive('/') ? 'active' : ''}>{t(lang, 'nav_home') ?? 'Home'}</Link>
-            <Link href="/about" className={isActive('/about') ? 'active' : ''}>{t(lang,'nav_about')}</Link>
-            <Link href="/classes" className={isActive('/classes') ? 'active' : ''}>{t(lang,'nav_classes')}</Link>
-            <Link href="/events" className={isActive('/events') ? 'active' : ''}>{t(lang,'nav_events')}</Link>
-            <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>{t(lang,'nav_contact')}</Link>
+          {/* Navbar */}
+          <nav className="nav" style={{ display: 'flex', gap: '1rem' }}>
+            <Link href="/" className={isActive('/') ? 'active' : ''}>
+              {t(lang, 'nav_home') ?? 'Home'}
+            </Link>
+            <Link href="/about" className={isActive('/about') ? 'active' : ''}>
+              {t(lang, 'nav_about')}
+            </Link>
+            <Link href="/classes" className={isActive('/classes') ? 'active' : ''}>
+              {t(lang, 'nav_classes')}
+            </Link>
+            <Link href="/events" className={isActive('/events') ? 'active' : ''}>
+              {t(lang, 'nav_events')}
+            </Link>
+            <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>
+              {t(lang, 'nav_contact')}
+            </Link>
           </nav>
 
-      {/* Language Toggle */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div className="lang-toggle" role="group" aria-label="Language toggle">
-            <button
-              className={lang === 'en' ? 'active' : ''}
-              onClick={() => setLang('en')}
-              aria-pressed={lang === 'en'}
-            >
-              EN
-            </button>
-            <button
-              className={lang === 'th' ? 'active' : ''}
-              onClick={() => setLang('th')}
-              aria-pressed={lang === 'th'}
-            >
-              ไทย
-            </button>
+          {/* Language Toggle */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div className="lang-toggle" role="group" aria-label="Language toggle">
+              <button
+                className={lang === 'en' ? 'active' : ''}
+                onClick={() => setLang('en')}
+                aria-pressed={lang === 'en'}
+              >
+                EN
+              </button>
+              <button
+                className={lang === 'th' ? 'active' : ''}
+                onClick={() => setLang('th')}
+                aria-pressed={lang === 'th'}
+              >
+                ไทย
+              </button>
+            </div>
           </div>
         </div>
       </div>
