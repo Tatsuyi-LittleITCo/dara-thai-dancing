@@ -28,7 +28,11 @@ const dict = {
     ig_follow: 'Follow on Instagram',
     yt_title: 'YouTube',
     yt_desc: 'Watch performances and behind‑the‑scenes videos.',
-    yt_visit: 'Visit our YouTube channel'
+    yt_visit: 'Visit our YouTube channel',
+    contact_page_title: 'Contact Us!',
+    contact_intro: 'We would love to meet you.',
+    about_page_title: 'About Us',
+    about_page_intro: 'Dara Thai Dance School in Maddington, Perth is a welcoming community hub where people of all ages and backgrounds come together to learn and celebrate traditional Thai dance. The school offers a friendly, family‑like environment, sharing Thai cultural arts through regular classes, rehearsals, and community performances. With a growing group of students and supporters, Dara Thai Dance School has become a connected local community that values culture, creativity, and inclusiveness.',
   },
   th: {
     site_name: 'ดารานาฏศิลป์ไทย',
