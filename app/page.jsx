@@ -18,27 +18,43 @@ export default function HomePage() {
       {/* ... your existing Hero / About / Classes sections ... */}
 
       {/* Facebook as a right-hand vertical card */}
-      <section id="facebook" className="section">
-        <div className="container layout-with-aside">
-          {/* Left column: keep your copy (or add anything you like) */}
-          <div>
-            <h2 style={{ color: 'var(--accent-2)' }}>{t(lang, 'fb_title')}</h2>
-            <p className="p">{t(lang, 'fb_sub')}</p>
       
-            {/* (Optional) Any extra content, images, or paragraphs can stay here */}
-          </div>
-
-    {/* Right column: the vertical card */}
+<section id="facebook" className="section">
+  <div className="container layout-with-aside">
+    <div /> {/* left column (optional) */}
     <aside className="aside-sticky">
-      <div className="card card-full" style={{ padding: 0, overflow: 'hidden' }}>
-        <FacebookEmbed
-          pageUrl="https://www.facebook.com/darathaidancing"
-          height={600}   // vertical card height; tweak 520–680 as you like
-        />
+      <div className="card card-full" style={{ overflow: 'hidden', padding: 0 }}>
+        {/* Card header */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '10px 14px',
+          borderBottom: '1px solid #e5e7eb',
+          background: 'linear-gradient(135deg, var(--soft-lime), #fff)',
+        }}>
+          <h3 style={{ margin: 0, color: 'var(--accent-2)' }}>
+            {t(lang, 'fb_title')}
+          </h3>
+          {/* optional: a small link to open the page */}
+          <a
+            href="https://www.facebook.com/darathaidancing"
+            target="_blank"
+            rel="noreferrer"
+            className="btn ghost"
+            style={{ padding: '6px 10px' }}
+          >
+            Facebook
+          </a>
+        </div>
+
+        {/* The embed */}
+        <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" height={560} />
       </div>
     </aside>
   </div>
 </section>
+
 
         {/* Social: Instagram + YouTube */}
   <section id="social" className="section" style={{ borderTop: '1px solid #e5e7eb' }}>
