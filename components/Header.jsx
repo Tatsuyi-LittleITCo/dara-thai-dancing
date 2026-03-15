@@ -37,22 +37,31 @@ export default function Header() {
             <strong style={{ lineHeight: 1, fontSize: '1.4rem', color: 'inherit' }}></strong>
           </Link>
         </div>
+        
+        export default function Header() {
+          const { lang } = useContext(LangContext);
+        
+          // define the missing state
+          const [menuOpen, setMenuOpen] = useState(false);
 
-        {/* Hamburger */}
-        <button
-          className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </button>
-
-        <div className={`nav-area ${menuOpen ? 'open' : ''}`}>
+          return (
+              <header>
+                {/* Hamburger */}
+                <button
+                  className="menu-toggle"
+                  onClick={() => setMenuOpen((prev) => !prev)}
+                  aria-expanded={menuOpen}
+                  aria-controls="site-nav"
+                >
+                  ☰
+                </button>
           
-          <nav className="nav">
-            <a href="#about">{t(lang,'nav_about')}</a>
-            <a href="#classes">{t(lang,'nav_classes')}</a>
-            <a href="#facebook">{t(lang,'nav_facebook')}</a>
-            <a href="#contact">{t(lang,'nav_contact')}</a>
+                <div className={`nav-area ${menuOpen ? 'open' : ''}`}>
+                  <nav id="site-nav" className="nav">
+                    <a href="#about">{t(lang, 'nav_about')}</a>
+                    <a href="#classes">{t(lang, 'nav_classes')}</a>
+                    <a href="#facebook">{t(lang, 'nav_facebook')}</a>
+                    <a href="#contact">{t(lang, 'nav_contact')}</a>
           </nav>
 
           <div className="lang-toggle">
