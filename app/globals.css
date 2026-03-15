@@ -229,3 +229,34 @@ footer { border-top: 1px solid #e5e7eb; color:#6b7280; }
   transition: 0.2s ease;
 }
 
+.fb-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+
+.fb-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 16px;
+  background: #f7f7f7;
+}
+
+.fb-button {
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: #1877f2;
+  color: white;
+  transition: 0.2s;
+}
+
+.fb-button:hover {
+  background: #145edb;
+}
