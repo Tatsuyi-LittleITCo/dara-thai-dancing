@@ -1,258 +1,84 @@
-'use client';
 
-import { useContext, useMemo } from "react";
-import { LangContext, t } from "../components/LangProvider";
-import FacebookEmbed from "../components/FacebookEmbed";
+'use client';
+import { useContext, useMemo } from 'react';
+import { LangContext, t } from '../components/LangProvider';
+import FacebookEmbed from '../components/FacebookEmbed';
+import InstagramEmbed from '../components/InstagramEmbed';     // <— add
+// import InstagramPosts from '../components/InstagramPosts';  // <— use if you go with official post embeds
+import YouTubeChannel from '../components/YouTubeChannel';     // <— add
 
 export default function HomePage() {
   const { lang } = useContext(LangContext);
-
-  const mapQuery = useMemo(() => {
-    return encodeURIComponent("Dara Thai Dance School, Perth WA");
-  }, []);
-
-  const classes = [
-    { title: t(lang, "kids_title"), desc: t(lang, "kids_desc") },
-    { title: t(lang, "adults_title"), desc: t(lang, "adults_desc") },
-    { title: t(lang, "troupe_title"), desc: t(lang, "troupe_desc") },
-  ];
+  const mapQuery = useMemo(
+    () => encodeURIComponent('Dara Thai Dance School, Perth WA'),
+    []
+  );
 
   return (
     <main>
+      {/* ... your existing Hero / About / Classes sections ... */}
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-bg" />
-
-        <div
-          className="hero-inner container section grid grid-2"
-          style={{ alignItems: "center", gap: "2rem" }}
-        >
-
-          <div>
-            <h1 className="h1">{t(lang, "hero_title")}</h1>
-
-            <p className="p" style={{ margin: "1rem 0 1.25rem" }}>
-              {t(lang, "hero_desc")}
-            </p>
-
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a className="btn primary" href="#classes">
-                {t(lang, "cta_join")}
-              </a>
-
-              <a className="btn ghost" href="#facebook">
-                {t(lang, "cta_fb")}
-              </a>
-            </div>
-          </div>
-
-          <div
-            className="card"
-            style={{ padding: 0, borderRadius: "1.25rem", overflow: "hidden" }}
-          >
-            <img
-              src="/hero.jpg"
-              alt="Thai dance presentation"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </div>
-
+      {/* Facebook */}
+      <section id="facebook" className="section">
+        <div className="container">
+          <h2 style={{ color: 'var(--accent-2)' }}>{t(lang, 'fb_title')}</h2>
+          <p className="p">{t(lang, 'fb_sub')}</p>
+          <FacebookEmbed pageUrl="https://www.facebook.com/darathaidancing" height={680} />
         </div>
       </section>
 
+      {/* Social: Instagram + YouTube */}
+      <section id="social" className="section" style={{ borderTop: '1px solid #e5e7eb' }}>
+        <div className="container">
+          <h2 style={{ color: 'var(--accent-2)' }}>{t(lang, 'social_title')}</h2>
 
-      {/* ABOUT */}
-      <section id="about" className="section">
-
-        <div className="container grid grid-2" style={{ gap: "2rem" }}>
-
-          <div>
-            <h2 style={{ color: "var(--accent-2)" }}>
-              {t(lang, "about_title")}
-            </h2>
-
-            <p className="p">{t(lang, "about_body")}</p>
-
-            <ul className="p" style={{ marginTop: 12, lineHeight: 1.8 }}>
-              <li>✅ Classical &amp; folk styles (all ages)</li>
-              <li>✅ Workshops &amp; school incursions</li>
-              <li>✅ Community &amp; cultural festivals</li>
-              <li>✅ Performance bookings</li>
-            </ul>
-          </div>
-
-          <aside className="card">
-            <h3 style={{ color: "var(--accent-2)", marginTop: 0 }}>
-              {t(lang, "quick_details")}
-            </h3>
-
-            <div className="p" style={{ fontSize: 14 }}>
-              <div>
-                <strong>{t(lang, "location")}:</strong> Perth, WA
-              </div>
-
-              <div>
-                <strong>{t(lang, "phone")}:</strong> 0433 216 381
-              </div>
-
-              <div>
-                <strong>{t(lang, "email")}:</strong> info@darathaidancing.com.au
-              </div>
-
-              <div>
-                <strong>{t(lang, "facebook")}:</strong>{" "}
+          <div className="grid grid-2" style={{ marginTop: '1rem', gap: '1.25rem' }}>
+            {/* Instagram */}
+            <div>
+              <h3 style={{ margin: 0 }}>{t(lang, 'ig_title')}</h3>
+              <p className="p" style={{ marginTop: 6 }}>{t(lang, 'ig_desc')}</p>
+              <InstagramEmbed height={560} />
+              <div style={{ marginTop: 10 }}>
                 <a
-                  href="https://www.facebook.com/darathaidancing"
+                  className="btn ghost"
+                  href="https://www.instagram.com/darathaidancing/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  @darathaidancing
+                  {t(lang, 'ig_follow')}
+                </a>
+              </div>
+              {/*
+              // If you choose the official post embeds, swap:
+              <InstagramPosts posts={[
+                'https://www.instagram.com/p/XXXXXXXXXXX/',
+                'https://www.instagram.com/reel/XXXXXXXXXXX/'
+              ]} />
+              */}
+            </div>
+
+            {/* YouTube */}
+            <div>
+              <h3 style={{ margin: 0 }}>{t(lang, 'yt_title')}</h3>
+              <p className="p" style={{ marginTop: 6 }}>{t(lang, 'yt_desc')}</p>
+              <YouTubeChannel channelSlug="DaraThaiDancingSchool" height={360} />
+              <div style={{ marginTop: 10, display: 'flex', gap: 10 }}>
+                <a
+                  className="btn ghost"
+                  href="https://www.youtube.com/c/DaraThaiDancingSchool"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t(lang, 'yt_visit')}
                 </a>
               </div>
             </div>
-          </aside>
-
-        </div>
-
-      </section>
-
-
-      {/* CLASSES */}
-      <section
-        id="classes"
-        className="section"
-        style={{
-          background: "#fff",
-          borderTop: "1px solid #e5e7eb",
-          borderBottom: "1px solid #e5e7eb",
-        }}
-      >
-
-        <div className="container">
-
-          <h2 style={{ color: "var(--accent-2)" }}>
-            {t(lang, "classes_title")}
-          </h2>
-
-          <div className="grid grid-3" style={{ marginTop: "1rem" }}>
-
-            {classes.map((c, i) => (
-              <div key={i} className="card">
-
-                <h3 style={{ color: "var(--accent)", marginTop: 0 }}>
-                  {c.title}
-                </h3>
-
-                <p className="p" style={{ fontSize: 14 }}>
-                  {c.desc}
-                </p>
-
-              </div>
-            ))}
-
           </div>
-
-          <p
-            className="p"
-            style={{ marginTop: 12, fontSize: 14, color: "#6b7280" }}
-          >
-            {t(lang, "timetable_note")}
-          </p>
-
         </div>
-
       </section>
 
-
-      {/* FACEBOOK */}
-      <section id="facebook" className="section">
-
-        <div className="container">
-
-          <h2 style={{ color: "var(--accent-2)" }}>
-            {t(lang, "fb_title")}
-          </h2>
-
-          <p className="p">{t(lang, "fb_sub")}</p>
-
-          <FacebookEmbed
-            pageUrl="https://www.facebook.com/darathaidancing"
-            height={680}
-          />
-
-        </div>
-
-      </section>
-
-
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className="section"
-        style={{
-          background: "var(--soft-red)",
-          borderTop: "1px solid #e5e7eb",
-        }}
-      >
-
-        <div className="container grid grid-2" style={{ gap: "2rem" }}>
-
-          <div>
-
-            <h2 style={{ color: "var(--accent-2)" }}>
-              {t(lang, "contact_title")}
-            </h2>
-
-            <p className="p">{t(lang, "contact_desc")}</p>
-
-            <ul className="p" style={{ lineHeight: 1.9 }}>
-              <li><strong>{t(lang, "phone")}:</strong> 0433 216 381</li>
-              <li><strong>{t(lang, "email")}:</strong> info@darathaidancing.com.au</li>
-              <li><strong>{t(lang, "location")}:</strong> Perth, Western Australia</li>
-            </ul>
-
-            <div style={{ display: "flex", gap: 12, marginTop: 8, flexWrap: "wrap" }}>
-
-              <a
-                className="btn primary"
-                href="https://www.facebook.com/darathaidancing"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t(lang, "msg_fb")}
-              </a>
-
-              <a
-                className="btn ghost"
-                href={`https://www.google.com/maps?q=${mapQuery}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t(lang, "open_maps")}
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <div className="card" style={{ padding: 0 }}>
-
-            <iframe
-              title="Map"
-              style={{ width: "100%", height: 360, border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-            />
-
-          </div>
-
-        </div>
-
-      </section>
-
+      {/* Contact (unchanged) */}
+      {/* ... your existing Contact section ... */}
     </main>
   );
 }
