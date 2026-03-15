@@ -1,17 +1,17 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useContext, useState } from 'react';
 import { LangContext, t } from './LangProvider';
 
 export default function Header() {
-  const { lang /*, setLang */ } = useContext(LangContext);
+  const { lang, setLang } = useContext(LangContext);
   const pathname = usePathname();
-  const isActive = (href) => pathname === href; 
+  const isActive = (href) => pathname === href;
 
-  // Mobile menu state
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className={`site-header ${menuOpen ? 'is-open' : ''}`}>
@@ -25,21 +25,40 @@ export default function Header() {
           gap: '1rem',
         }}
       >
-        {/* Logo + Site Name */}
-        <div className="brand" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-          <Link href="/" aria-label="Home" onClick={() => setMenuOpen(false)} style={{display:'inline-flex',alignItems:'center',gap:12,textDecoration:'none'}}>
-            <img
-              src="/logo.jpg"
-              alt="Dara Thai Dancing School"
-              width={40}
-              height={40}
-              style={{ borderRadius: 8, objectFit: 'cover' }}
+        {/* Logo area */}
+        <Link
+          href="/"
+          aria-label="Go to home"
+          className="header-logo-link"
+          onClick={() => setMenuOpen(false)}
+        >
+          {/* Full lockup: desktop + tablet */}
+          <div className="header-logo-full">
+            <Image
+              src="/assetts/daria_zelous_trans.webp"
+              alt="Dara Thai Dance School logo"
+              className="header-lockup__img"
+              width={560}
+              height={480}
+              priority
             />
-            <strong className="brand-name" style={{ lineHeight: 1, fontSize: '1.4rem', color: 'inherit' }}>
-              Dara Thai
-            </strong>
-          </Link>
-        </div>
+            <div className="header-lockup__text">
+              <span className="header-lockup__thai">ดารานาฏศิลป์ไทย</span>
+              <span className="header-lockup__title">Dara Thai</span>
+              <span className="header-lockup__subtitle">Dancing School</span>
+            </div>
+          </div>
+
+          {/* Icon only: mobile */}
+          <Image
+            src="/assetts/daria_squared_trans.webp"
+            alt="Dara Thai Dance School logo"
+            className="header-logo-icon"
+            width={60}
+            height={60}
+            priority
+          />
+        </Link>
 
         {/* Desktop nav */}
         <nav className="nav-desktop" aria-label="Primary">
@@ -56,6 +75,24 @@ export default function Header() {
             {t(lang, 'nav_contact') ?? 'Contact'}
           </Link>
         </nav>
+
+        {/* Language Toggle */}
+        <div className="lang-toggle" role="group" aria-label="Language toggle">
+          <button
+            className={lang === 'en' ? 'active' : ''}
+            onClick={() => setLang('en')}
+            aria-pressed={lang === 'en'}
+          >
+            EN
+          </button>
+          <button
+            className={lang === 'th' ? 'active' : ''}
+            onClick={() => setLang('th')}
+            aria-pressed={lang === 'th'}
+          >
+            ไทย
+          </button>
+        </div>
 
         {/* Mobile menu button */}
         <button
@@ -77,16 +114,15 @@ export default function Header() {
         aria-label="Mobile"
         onClick={() => setMenuOpen(false)}
       >
+        <Link href="/">{t(lang, 'nav_home') ?? 'Home'}</Link>
         <Link href="/about">{t(lang, 'nav_about') ?? 'About'}</Link>
         <Link href="/classes">{t(lang, 'nav_classes') ?? 'Classes'}</Link>
         <Link href="/events">{t(lang, 'nav_events') ?? 'Events'}</Link>
         <Link href="/contact">{t(lang, 'nav_contact') ?? 'Contact'}</Link>
       </nav>
 
-      {/* Minimal styles (scoped to this component) */}
       <style jsx>{`
         .header-inner {
-          /* layout handled inline above; keep class for future tweaks */
         }
         .nav-desktop {
           display: none;
