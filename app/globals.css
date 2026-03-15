@@ -292,7 +292,7 @@ a:hover { text-decoration: underline; }
 
 .header-lockup__title {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(1.1rem, 2.6vw, 2rem);
   line-height: 1;
   color: #3d7a3e;
@@ -360,7 +360,7 @@ a:hover { text-decoration: underline; }
 
 .logo-lockup__title {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1;
   color: #3d7a3e;
