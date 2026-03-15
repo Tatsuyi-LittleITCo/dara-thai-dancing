@@ -6,7 +6,7 @@ export const LangContext = createContext({ lang: 'en', setLang: () => {} });
 const dict = {
   en: {
     site_name: 'Dara Thai Dance School',
-    nav_about: 'About', nav_classes: 'Classes', nav_facebook: 'Facebook', nav_contact: 'Contact', nav_events: 'Events',
+    nav_about: 'About', nav_classes: 'Classes', nav_facebook: 'Facebook', nav_contact: 'Contact', nav_events: 'Events', nav_home: 'Home',
     hero_title: 'Thai Dance & Culture in Perth',
     hero_desc: 'A welcoming dance school sharing the beauty of traditional and folk Thai dance for all ages—performances, workshops, and weekly classes.',
     cta_join: 'Join a Class', cta_fb: 'See Latest on Facebook',
